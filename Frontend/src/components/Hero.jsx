@@ -4,9 +4,8 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import profile from "../assets/me.jpg";
 import leetcode from "../icons/leetcode-48.png";
 import twitter from "../icons/twitter.png";
-import "../app.css";
+import "../App.css";
 import FloatingSkills from "./FloatingSkills";
-import Footer from "./Footer";
 import { Typewriter } from "react-simple-typewriter";
 
 const Hero = () => {
