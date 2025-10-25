@@ -8,35 +8,37 @@ import About from "./components/About";
 import MyProjects from "./components/MyProjects";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
-
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
 function App() {
   return (
-    <Router>
-      <div className="relative w-full min-h-screen text-gray-950 bg-gray-200  bg-gradient-to-br from-gray-900 via-black to-gray-800 ">
-        {/* Parent Container for the Background Elements */}
-        <div className="absolute inset-0 z-0">
-          <div
-            className="bg-[#fbe2e3] absolute top-[-6rem] right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem]"
-            aria-hidden="true"
-          ></div>
-          <div
-            className="bg-[#dbd7fb] absolute top-[-1rem] left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem]"
-            aria-hidden="true"
-          ></div>
-        </div>
+    <Provider store={store}>
+      <Router>
+        <div className="relative w-full min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white overflow-hidden">
+          {/* Improved background effects */}
+          <div className="fixed inset-0 z-0">
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/20 rounded-full filter blur-[120px] opacity-50 animate-pulse"></div>
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/20 rounded-full filter blur-[120px] opacity-50 animate-pulse delay-1000"></div>
+          </div>
 
-        <div className="relative z-10">
-          <Header />
-          <Hero />
-          <SectionDivider />
-          <About />
-          <MyProjects />
-          <Contact />
-          <Footer/>
+          {/* Main content with smooth scroll */}
+          <div className="relative z-10 scroll-smooth">
+            <Header />
+            <main className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <Hero />
+              <SectionDivider />
+              <About />
+              <SectionDivider />
+              <MyProjects />
+              <SectionDivider />
+              <Contact />
+            </main>
+            <Footer />
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </Provider>
   );
 }
 

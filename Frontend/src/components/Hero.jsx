@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import profile from "../assets/me.jpg";
+import profile from "../assets/me.png";
 import leetcode from "../icons/leetcode-48.png";
 import twitter from "../icons/twitter.png";
 import "../App.css";
@@ -10,7 +10,7 @@ import { Typewriter } from "react-simple-typewriter";
 
 const Hero = () => {
   return (
-    <div className="relative w-full min-h-screen flex flex-col justify-center items-center bg-[#050B1E] text-white py-10 overflow-hidden">
+    <div className="relative w-full min-h-screen flex flex-col justify-center items-center bg-[#070b16] text-white py-10 overflow-hidden">
       <FloatingSkills />
       <div className="relative w-40 h-40 flex justify-center items-center z-10">
         <motion.span
@@ -55,7 +55,7 @@ const Hero = () => {
               objectPosition: "top",
               objectFit: "cover",
               width: "100%",
-              height: "150px",
+              height: "100px",
             }}
             className="w-full h-full object-cover"
           />
@@ -111,6 +111,7 @@ const Hero = () => {
         </div>
       </motion.div>
 
+      {/* have  social links objects inside the data.js but for the it's individual hover color m not  applying  it here */}
       <div className="flex gap-8 text-3xl fixed flex-col right-0 px-6 py-8 bg-slate-700 shadow-lg rounded-tl-[16px] rounded-bl-[16px] z-10">
         <motion.a
           href="https://github.com/yourgithub"
@@ -124,7 +125,7 @@ const Hero = () => {
           href="https://linkedin.com/in/yourlinkedin"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-100 hover:text-blue-400 transition"
+          className="text-gray-100 hover:text-blue-500 transition"
         >
           <i className="fab fa-linkedin"></i>
         </motion.a>
