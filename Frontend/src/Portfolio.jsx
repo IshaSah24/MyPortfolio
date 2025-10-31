@@ -46,11 +46,7 @@ function Portfolio() {
         <div className="my-12">
           <h2 className="font-bold mb-4 text-xl">About</h2>
           <p className="text-neutral-700 text-md leading-relaxed">
-            I started my career as a freelancer in college. In my sophomore year
-            I interned at a remote health tech startup. In my final year of
-            college, I worked at a remote fintech startup. Currently, I am
-            building at HeroUI (YC S24) and always experimenting with cool side
-            projects.
+          I’m Isha Sah, a passionate Full Stack Web Developer with hands-on experience in building modern, user-focused applications using the full-stack technologies.
           </p>
         </div>
 
@@ -617,7 +613,7 @@ function Portfolio() {
       <nav className="fixed bottom-0 left-0 right-0  border-neutral-50 py-4">
         <div className="max-w-sm mx-auto px-8 flex justify-evenly gap-6 border-2 border-[oklch(87.2% 0.01 258.338)] p-4 rounded-full bg-gray-50  transparent">
           <a
-            href="https://github.com"
+            href="https://github.com/IshaSah24/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-neutral-800 hover:text-black border-r "
@@ -625,7 +621,7 @@ function Portfolio() {
             <Github size={16} />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/isha-sah-607277300/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-neutral-800 hover:text-black"
@@ -633,7 +629,7 @@ function Portfolio() {
             <Linkedin size={16} />
           </a>
           <a
-            href="https://twitter.com"
+            href="https://x.com/IshaSah_24"
             target="_blank"
             rel="noopener noreferrer"
             className="text-neutral-800 hover:text-black"
@@ -641,7 +637,7 @@ function Portfolio() {
             <Twitter size={16} />
           </a>
           <a
-            href="mailto:your@email.com"
+            href="mailto:sah904582@email.com"
             className="text-neutral-800 hover:text-black border-l"
           >
             <Mail size={16} />
