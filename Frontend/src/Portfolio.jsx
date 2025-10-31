@@ -41,14 +41,15 @@ function Portfolio() {
         <p className="text-neutral-700 mb-2 text-md">
           I am a software engineer. I practice DSA daily on LeetCode to
           strengthen my logic and optimize real-world backend solutions.
+          a passionate Full Stack Web Developer with hands-on experience in building modern, user-focused applications using the full-stack technologies.
         </p>
 
-        <div className="my-12">
+        {/* <div className="my-12">
           <h2 className="font-bold mb-4 text-xl">About</h2>
           <p className="text-neutral-700 text-md leading-relaxed">
           I’m Isha Sah, a passionate Full Stack Web Developer with hands-on experience in building modern, user-focused applications using the full-stack technologies.
           </p>
-        </div>
+        </div> */}
 
         {/* Skills */}
         <div className="my-12 mb-24 mt-12">
