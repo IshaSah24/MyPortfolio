@@ -462,9 +462,9 @@ function Portfolio() {
                   <button className="px-3 py-1.5 bg-black text-white text-xs rounded">
                     Website
                   </button>
-                  <button className="px-3 py-1.5 border border-neutral-300 text-xs rounded">
+                  <a href="https://github.com/IshaSah24/TypeStrike-AI" className="px-3 py-1.5 border hover:bg-white hover:text-black text-white bg-black border-neutral-300 text-xs rounded">
                     Source
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -502,9 +502,9 @@ function Portfolio() {
                   <button className="px-3 py-1.5 bg-black text-white text-xs rounded">
                     Website
                   </button>
-                  <button className="px-3 py-1.5 bg-black text-white text-xs rounded">
+                  <a href="https://github.com/IshaSah24/FullStack-UrlShortner"  className="px-3 py-1.5 border hover:bg-white hover:text-black text-white bg-black border-neutral-300 text-xs rounded">
                     Source
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -603,10 +603,10 @@ function Portfolio() {
 
           <div className="text-center">
             <a
-              href="https://leetcode.com/u/isha_sah/"
+              href="https://leetcode.com/u/ishasah850/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-black hover:bg-gray-800 px-6 py-4 rounded-full font-semibold text-white transition"
+              className="inline-block bg-black hover:bg-gray-800 px-4 py-4 rounded-full font-semibold text-white transition"
             >
               view
             </a>
