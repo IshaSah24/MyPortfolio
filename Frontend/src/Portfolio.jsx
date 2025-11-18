@@ -1,650 +1,332 @@
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
-import profile from "./assets/me.png";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { motion } from 'framer-motion';
+import { Github, Linkedin, Mail, Twitter, Terminal, Code2 } from 'lucide-react';
+import { useTheme } from './hooks/useTheme';
+import { ThemeToggle } from './components/ThemeToggle';
+import { ExperienceItem } from './components/ExperienceItem';
+import { ProjectCard } from './components/ProjectCard';
+import { SkillBadge } from './components/SkillBadge';
+
 function Portfolio() {
-  const [isOpen, setIsOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
 
-  const [openIndex, setOpenIndex] = useState(null);
+  const skills = [
+    'React',
+    'Next.js',
+    'TypeScript',
+    'Node.js',
+    'PostgreSQL',
+    'AWS',
+    'Docker',
+    'Redis',
+    'TailwindCSS',
+  ];
 
-  const arrowVariants = {
-    open: { rotate: 180 },
-    closed: { rotate: 0 },
+  const fadeIn = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.5 },
   };
-
-  const listVariants = {
-    open: { height: "auto", opacity: 1 },
-    closed: { height: 0, opacity: 0 },
-  };
-
-  const toggleOpen = (index) => setOpenIndex(index);
 
   return (
-    <div className="min-h-screen bg-white pb-24">
-      <div className="max-w-4xl mx-auto px-8 py-12">
-        <div className="flex items-center justify-between mb-12">
-          <h1 className="text-3xl font-bold">Hi, I'm Isha Sah 👋</h1>
+    <div className="min-h-screen bg-bg-primary transition-colors duration-300">
+      <div className="max-w-4xl mx-auto px-6 py-12 sm:px-8">
+        <motion.header
+          className="flex items-center justify-between mb-16"
+          {...fadeIn}
+        >
+          <div className="flex items-center gap-3">
+            <Terminal className="text-blue-600" size={28} />
+            <div>
+              <h1 className="text-2xl font-bold text-text-primary">Isha Sah</h1>
+              <p className="text-sm text-text-tertiary font-mono">
+                Full Stack Developer
+              </p>
+            </div>
+          </div>
+          <ThemeToggle theme={theme} onThemeChange={setTheme} />
+        </motion.header>
 
-          <div className="w-[6rem] h-[6rem] rounded-full overflow-hidden bg-neutral-200 flex items-center justify-center">
-            <img
-              src={profile}
-              alt="Profile"
-              className="w-full h-full object-cover"
-              style={{
-                objectPosition: "top",
-                transform: "scale(1.4)",
-              }}
+        <motion.section
+          className="mb-16"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
+          <p className="text-text-secondary leading-relaxed mb-6">
+            Software engineer specializing in full-stack web development. I practice DSA
+            daily on LeetCode to strengthen problem-solving skills and build modern,
+            user-focused applications using cutting-edge technologies.
+          </p>
+          <div className="flex items-center gap-4 text-sm text-text-tertiary font-mono">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              <span>Available for opportunities</span>
+            </div>
+          </div>
+        </motion.section>
+
+        <motion.section
+          className="mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          <h2 className="text-xl font-bold text-text-primary mb-6 flex items-center gap-2">
+            <Code2 size={20} className="text-accent" />
+            Technical Skills
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {skills.map((skill, index) => (
+              <SkillBadge key={skill} name={skill} index={index} />
+            ))}
+          </div>
+        </motion.section>
+
+        <motion.section
+          className="mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+        >
+          <h2 className="text-xl font-bold text-text-primary mb-6">Experience</h2>
+          <div className="space-y-6">
+            <ExperienceItem
+              icon="I"
+              title="Institutional Major Project"
+              subtitle="Full Stack Developer"
+              period="Jul 2024 - Feb 2025"
+            />
+            <ExperienceItem
+              icon="T"
+              title="TechOctanet Service Pvt Ltd"
+              subtitle="Web Developer Intern"
+              period="May 2024 - Jul 2024"
             />
           </div>
-        </div>
+        </motion.section>
 
-        <p className="text-neutral-700 mb-2 text-md">
-          I am a software engineer. I practice DSA daily on LeetCode to
-          strengthen my logic and optimize real-world backend solutions.
-          a passionate Full Stack Web Developer with hands-on experience in building modern, user-focused applications using the full-stack technologies.
-        </p>
-
-        {/* <div className="my-12">
-          <h2 className="font-bold mb-4 text-xl">About</h2>
-          <p className="text-neutral-700 text-md leading-relaxed">
-          I’m Isha Sah, a passionate Full Stack Web Developer with hands-on experience in building modern, user-focused applications using the full-stack technologies.
-          </p>
-        </div> */}
-
-        {/* Skills */}
-        <div className="my-12 mb-24 mt-12">
-          <h2 className="font-bold mb-6 text-xl">Skills</h2>
-          <div className="flex flex-wrap gap-2">
-            <span className="px-2.5 py-1 bg-black text-white text-md rounded">
-              React
-            </span>
-            <span className="px-2.5 py-1 bg-black text-white text-md rounded">
-              Next.js
-            </span>
-            <span className="px-2.5 py-1 bg-black text-white text-md rounded">
-              TailwindCSS
-            </span>
-            <span className="px-2.5 py-1 bg-black text-white text-md rounded">
-              TypeScript
-            </span>
-            <span className="px-2.5 py-1 bg-black text-white text-md rounded">
-              Node.js
-            </span>
-            <span className="px-2.5 py-1 bg-black text-white text-md rounded">
-              AWS
-            </span>
-            <span className="px-2.5 py-1 bg-black text-white text-md rounded">
-              Postgres
-            </span>
-            <span className="px-2.5 py-1 bg-black text-white text-md rounded">
-              Docker
-            </span>
-            <span className="px-2.5 py-1 bg-black text-white text-md rounded">
-              Redis
-            </span>
+        <motion.section
+          className="mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+        >
+          <h2 className="text-xl font-bold text-text-primary mb-6">Education</h2>
+          <div className="space-y-6">
+            <ExperienceItem
+              icon="D"
+              title="Dooars Academy of Technology & Management"
+              subtitle="Bachelor's Degree of Computer Application (BCA) • CGPA: 8.9"
+              period="2022 - 2025"
+            />
+            <ExperienceItem
+              icon="K"
+              title="Kumargramduar Madan Singh High School"
+              subtitle="Higher Secondary School (HS)"
+              period="2020 - 2021"
+            />
           </div>
-        </div>
-        {/* Work Experience */}
-        <div className="my-12">
-          <h2 className="font-bold mb-6 text-xl">Work Experience</h2>
+        </motion.section>
 
-          <div className="mb-5">
-            <div className="flex items-start gap-3">
-              <div className="w-9 h-9 rounded-sm bg-neutral-200 flex items-center justify-center text-xs font-semibold flex-shrink-0">
-                I
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <div className="font-semibold text-md">
-                      Institutional Major Project
-                    </div>
-                    <div className="text-xs text-neutral-600">
-                      Full Stack Developer
-                    </div>
-                  </div>
-                  <div className="text-sm text-neutral-500 whitespace-nowrap">
-                    July 2024 - Feb 2025
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="mb-5">
-            <div className="flex items-start gap-3">
-              <div className="w-9 h-9 rounded-sm bg-neutral-200 flex items-center justify-center text-xs font-semibold flex-shrink-0">
-                T
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <div className="font-semibold text-md">
-                      TechOctanet Service Pvt Ltd
-                    </div>
-                    <div className="text-sm text-neutral-600">
-                      Web Developer Intern
-                    </div>
-                  </div>
-                  <div className="text-sm text-neutral-500 whitespace-nowrap">
-                    May 2025 - July 2025
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* Education */}
-        <div className="my-12">
-          <h2 className="font-bold mb-6 text-xl">Education</h2>
-
-          <div className="mb-5">
-            <div className="flex items-start gap-3">
-              <div className="w-9 h-9 rounded-sm bg-neutral-200 flex items-center justify-center text-sm font-semibold flex-shrink-0">
-                T
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <div className="font-semibold text-md flex gap-16 item-center justify-center">
-                      Dooars Academy of Technology & Management (DATM)
-                      <p className="text-sm font-normal mt-[2px]">
-                        {" "}
-                        CGPA : 8.9{" "}
-                      </p>
-                    </div>
-
-                    <div className="text-sm text-neutral-600">
-                      Bachelor's Degree of Computer Application (BCA)
-                    </div>
-                  </div>
-                  <div className="text-sm text-neutral-500 whitespace-nowrap">
-                    2022 - 2025
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mb-5">
-            <div className="flex items-start gap-3">
-              <div className="w-9 h-9 rounded-sm bg-neutral-200 flex items-center justify-center text-sm font-semibold flex-shrink-0">
-                K
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <div className="font-semibold text-md">
-                      Kumargramduar Madan Singh High School
-                    </div>
-                    <div className="text-sm text-neutral-600">
-                      Higher Secondary School (HS)
-                    </div>
-                  </div>
-                  <div className="text-sm text-neutral-500 whitespace-nowrap">
-                    2020 - 2021
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* Virtual experiences */}
-        <div className="my-12 mt-18">
-          <h2 className="font-bold mb-6 text-xl">
+        <motion.section
+          className="mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+        >
+          <h2 className="text-xl font-bold text-text-primary mb-6">
             Certifications & Virtual Experiences
           </h2>
-          <div>
-            {/* ===== AWS ===== */}
-            <motion.div
-              className="mb-5"
-              onHoverStart={() => toggleOpen(1)}
-              onHoverEnd={() => toggleOpen(null)}
-            >
-              <div className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-sm bg-neutral-200 flex items-center justify-center text-xs font-semibold flex-shrink-0">
-                  A
-                </div>
-
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between">
-                    <div className="font-semibold text-md flex items-center gap-1">
-                      AWS Virtual Experience –{" "}
-                      <span className="inline-flex items-center">
-                        Serverless Application Developer
-                        <motion.span
-                          className="ml-1 inline-block"
-                          variants={arrowVariants}
-                          initial="closed"
-                          animate={openIndex === 1 ? "open" : "closed"}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <motion.path
-                              d="M6 9l6 6 6-6"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </motion.span>
-                      </span>
-                    </div>
-                    <div className="text-sm text-neutral-500 whitespace-nowrap">
-                      Aug - Oct 2025
-                    </div>
-                  </div>
-
-                  <div className="text-sm text-neutral-600 mt-1">
-                    Amazon Web Services (via AWS Skill Builder)
-                  </div>
-
-                  <motion.div
-                    className="overflow-hidden"
-                    variants={listVariants}
-                    initial="closed"
-                    animate={openIndex === 1 ? "open" : "closed"}
-                  >
-                    <ul className="list-disc list-inside text-sm text-neutral-700 mt-3 space-y-1">
-                      <li>
-                        Completed self-paced virtual internship-style programs
-                        on AWS Lambda, API Gateway, and CDK.
-                      </li>
-                      <li>
-                        Learnt how to design, build, and simulate serverless
-                        applications using AWS tools and services.
-                      </li>
-                      <li>
-                        Explored event-driven architecture, cloud
-                        infrastructure, and scalable API design.
-                      </li>
-                      <li>
-                        Earned verified AWS completion certificates through AWS
-                        Skill Builder.
-                      </li>
-                    </ul>
-
-                    <div className="mt-3 text-sm text-neutral-700">
-                      <strong>Certificates:</strong>
-                      <div className="mt-2 flex flex-wrap gap-2">
-                        <a
-                          href="https://github.com/IshaSah24/Certificates/blob/main/97bd3b8f-4b69-4737-96fe-3a60b500a926.pdf"
-                          className="text-blue-600 hover:underline bg-neutral-100 px-2 py-1 rounded text-xs"
-                        >
-                          AWS Lambda Foundations
-                        </a>
-                        <a
-                          href="#"
-                          className="text-blue-600 hover:underline bg-neutral-100 px-2 py-1 rounded text-xs"
-                        >
-                          API Gateway Serverless
-                        </a>
-                        <a
-                          href="#"
-                          className="text-blue-600 hover:underline bg-neutral-100 px-2 py-1 rounded text-xs"
-                        >
-                          CDK Getting Started
-                        </a>
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* ===== Red Hat ===== */}
-            <motion.div
-              className="mb-5"
-              onHoverStart={() => toggleOpen(2)}
-              onHoverEnd={() => toggleOpen(null)}
-            >
-              <div className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-sm bg-neutral-200 flex items-center justify-center text-xs font-semibold flex-shrink-0">
-                  R
-                </div>
-
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between">
-                    <div className="font-semibold text-md flex items-center gap-1">
-                      Red Hat –{" "}
-                      <span className="inline-flex items-center">
-                        RHEL-124 & RHEL-134
-                        <motion.span
-                          className="ml-1 inline-block"
-                          variants={arrowVariants}
-                          initial="closed"
-                          animate={openIndex === 2 ? "open" : "closed"}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <motion.path
-                              d="M6 9l6 6 6-6"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </motion.span>
-                      </span>
-                    </div>
-                    <div className="text-sm text-neutral-500 whitespace-nowrap">
-                      May - Sep 2025
-                    </div>
-                  </div>
-
-                  <div className="text-sm text-neutral-600 mt-1">
-                    Red Hat Academy (Linux System Administration)
-                  </div>
-
-                  <motion.div
-                    className="overflow-hidden"
-                    variants={listVariants}
-                    initial="closed"
-                    animate={openIndex === 2 ? "open" : "closed"}
-                  >
-                    <ul className="list-disc list-inside text-sm text-neutral-700 mt-3 space-y-1">
-                      <li>
-                        Learned Linux system administration, shell scripting,
-                        and user management using RHEL-9.
-                      </li>
-                      <li>
-                        Configured networking, permissions, and system services
-                        in a Linux environment.
-                      </li>
-                      <li>
-                        Completed Red Hat Academy coursework with verified
-                        attendance certificates.
-                      </li>
-                    </ul>
-
-                    <div className="mt-3 text-sm text-neutral-700">
-                      <strong>Certificates:</strong>
-                      <div className="mt-2 flex flex-wrap gap-2">
-                        <a
-                          href="/certificates/RH124.pdf"
-                          className="text-blue-600 hover:underline bg-neutral-100 px-2 py-1 rounded text-xs"
-                        >
-                          RH124 - Certificate of Attendance
-                        </a>
-                        <a
-                          href="/certificates/RH134.pdf"
-                          className="text-blue-600 hover:underline bg-neutral-100 px-2 py-1 rounded text-xs"
-                        >
-                          RH134 - Certificate of Attendance
-                        </a>
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-              </div>
-            </motion.div>
+          <div className="space-y-6">
+            <ExperienceItem
+              icon="A"
+              title="AWS Virtual Experience"
+              subtitle="Serverless Application Developer • AWS Skill Builder"
+              period="Aug - Oct 2024"
+              details={[
+                'Completed self-paced programs on AWS Lambda, API Gateway, and CDK',
+                'Designed and built serverless applications using AWS services',
+                'Explored event-driven architecture and scalable API design',
+                'Earned verified AWS completion certificates',
+              ]}
+              certificates={[
+                {
+                  name: 'AWS Lambda Foundations',
+                  url: 'https://github.com/IshaSah24/Certificates/blob/main/97bd3b8f-4b69-4737-96fe-3a60b500a926.pdf',
+                },
+                { name: 'API Gateway Serverless', url: '#' },
+                { name: 'CDK Getting Started', url: '#' },
+              ]}
+            />
+            <ExperienceItem
+              icon="R"
+              title="Red Hat Academy"
+              subtitle="RHEL-124 & RHEL-134 • Linux System Administration"
+              period="May - Sep 2024"
+              details={[
+                'Linux system administration and shell scripting using RHEL-9',
+                'Configured networking, permissions, and system services',
+                'Completed coursework with verified attendance certificates',
+              ]}
+              certificates={[
+                { name: 'RH124 Certificate', url: '#' },
+                { name: 'RH134 Certificate', url: '#' },
+              ]}
+            />
           </div>
-        </div>
-        {/* Projects */}
-        <div className="my-12">
-          <div className="text-center mb-8">
-            <span className="inline-block px-2.5 py-1 bg-black text-white text-md rounded mb-2">
-              My Projects
-            </span>
-            <h2 className="text-2xl font-bold mb-2">
-              Check out my latest work
-            </h2>
-            <p className="text-md text-neutral-600">
-              I've worked on a variety of projects, from simple websites to
-              complex web applications. Here are a few of my favorites.
+        </motion.section>
+
+        <motion.section
+          className="mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7 }}
+        >
+          <div className="text-center mb-10">
+            <div className="inline-block px-3 py-1 bg-surface-secondary border border-divider text-text-primary text-sm rounded-full mb-3 font-mono">
+              Featured Work
+            </div>
+            <h2 className="text-2xl font-bold text-text-primary mb-2">Projects</h2>
+            <p className="text-sm text-text-secondary max-w-2xl mx-auto">
+              A collection of full-stack applications showcasing modern web development
+              practices
             </p>
           </div>
 
-          <div className="space-y-6 grid grid-cols-2 gap-4">
-            <div className="border border-neutral-200 rounded overflow-hidden">
-              <div className="h-40 bg-gradient-to-br from-red-50 via-blue-50 to-purple-50 flex items-center justify-center text-4xl">
-                🗺️
-              </div>
-              <div className="p-5">
-                <h3 className="font-bold mb-1">TypeStrike AI</h3>
-                <p className="text-sm text-neutral-700 mb-3 leading-relaxed">
-                  TypeStrike Ai is an AI-driven full-stack typing application
-                  where user can test their typing speed. Intergrated ai (as
-                  typing partner) user can choose the dificulty level and play.
-                  <div className="mt-6 text-md">
-                    <p className="text-[.8rem]">
-                      Play with ai with various levels
-                    </p>
-                    <p className="text-[.8rem]">
-                      Helps devs to enhance their typing speed
-                    </p>
-                    <p className="text-[.8rem]">Multiplayer feature</p>
-                  </div>
-                </p>
-                <div className="flex flex-wrap gap-1.5 mb-3">
-                  <span className="px-2 py-0.5 bg-neutral-100 text-neutral-700 text-xs rounded">
-                    React.js
-                  </span>
-                  <span className="px-2 py-0.5 bg-neutral-100 text-neutral-700 text-xs rounded">
-                    Javascript
-                  </span>
-                  <span className="px-2 py-0.5 bg-neutral-100 text-neutral-700 text-xs rounded">
-                    Web Socket
-                  </span>
-                  <span className="px-2 py-0.5 bg-neutral-100 text-neutral-700 text-xs rounded">
-                    MongoDb
-                  </span>
-                  <span className="px-2 py-0.5 bg-neutral-100 text-neutral-700 text-xs rounded">
-                    Deepseek Ai
-                  </span>
-                  <span className="px-2 py-0.5 bg-neutral-100 text-neutral-700 text-xs rounded">
-                    TailwindCSS
-                  </span>
-                  <span className="px-2 py-0.5 bg-neutral-100 text-neutral-700 text-xs rounded">
-                    Shadcn
-                  </span>
-                  <span className="px-2 py-0.5 bg-neutral-100 text-neutral-700 text-xs rounded">
-                    Shadcn UI
-                  </span>
-                </div>
-                <div className="flex gap-2">
-                  <button className="px-3 py-1.5 bg-black text-white text-xs rounded">
-                    Website
-                  </button>
-                  <a href="https://github.com/IshaSah24/TypeStrike-AI" className="px-3 py-1.5 border hover:bg-white hover:text-black text-white bg-black border-neutral-300 text-xs rounded">
-                    Source
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="border border-neutral-200 rounded overflow-hidden">
-              <div className="h-40 bg-gradient-to-br from-purple-900 via-blue-900 to-black flex items-center justify-center text-4xl">
-                📄
-              </div>
-              <div className="p-5">
-                <h3 className="font-bold mb-1">Full Stack URL Shortner</h3>
-                <p className="text-xs text-neutral-700 mb-3 leading-relaxed">
-                  A full-stack URL shortener web application that allows users
-                  to shorten long URLs, manage their links, and track analytics.
-                  Features user authentication, link management, and detailed
-                  analytics dashboard.
-                </p>
-                <div className="flex flex-wrap gap-1.5 mb-3">
-                  <span className="px-2 py-0.5 bg-neutral-100 text-neutral-700 text-xs rounded">
-                    React.Js
-                  </span>
-                  <span className="px-2 py-0.5 bg-neutral-100 text-neutral-700 text-xs rounded">
-                    Javascript
-                  </span>
-                  <span className="px-2 py-0.5 bg-neutral-100 text-neutral-700 text-xs rounded">
-                    Express.Js
-                  </span>
-                  <span className="px-2 py-0.5 bg-neutral-100 text-neutral-700 text-xs rounded">
-                    MongoDb
-                  </span>
-                  <span className="px-2 py-0.5 bg-neutral-100 text-neutral-700 text-xs rounded">
-                    TailwindCSS
-                  </span>
-                </div>
-                <div className="flex gap-2">
-                  <button className="px-3 py-1.5 bg-black text-white text-xs rounded">
-                    Website
-                  </button>
-                  <a href="https://github.com/IshaSah24/FullStack-UrlShortner"  className="px-3 py-1.5 border hover:bg-white hover:text-black text-white bg-black border-neutral-300 text-xs rounded">
-                    Source
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* <div className="border border-neutral-200 rounded overflow-hidden">
-              <div className="h-40 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-4xl">
-                🖨️
-              </div>
-              <div className="p-5">
-                <h3 className="font-bold mb-1">K3DF</h3>
-                <p className="text-xs text-neutral-700 mb-3 leading-relaxed">
-                  A landing page for a 3D printing farm to showcase their
-                  services and products. This is my first ever freelance gig and
-                  first earning through tech. (The client has changed the url)
-                </p>
-                <div className="flex flex-wrap gap-1.5 mb-3">
-                  <span className="px-2 py-0.5 bg-neutral-100 text-neutral-700 text-xs rounded">
-                    Next.js
-                  </span>
-                  <span className="px-2 py-0.5 bg-neutral-100 text-neutral-700 text-xs rounded">
-                    TailwindCSS
-                  </span>
-                </div>
-                <div className="flex gap-2">
-                  <button className="px-3 py-1.5 bg-black text-white text-xs rounded">
-                    Website
-                  </button>
-                </div>
-              </div>
-            </div> */}
-          </div>
-        </div>
-
-        {/*  DSA SECTION  */}
-        <section className="my-20 py-16 px-8 rounded-2xl shadow-lg max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center">
-            Data Structures & Algorithms
-          </h2>
-
-          <p className=" max-w-3xl mx-auto text-center mb-10 leading-relaxed">
-            I consistently practice{" "}
-            <span className="font-semibold">
-              Data Structures and Algorithms
-            </span>{" "}
-            on{" "}
-            <a
-              href="https://leetcode.com/u/ishasah850/" // ✅ replace with your username
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              LeetCode
-            </a>{" "}
-            to strengthen my logic, improve problem-solving ability, and enhance
-            my backend development skills. My current focus is on Arrays, Linked
-            Lists, Stacks, Queues, and Dynamic Programming.
-          </p>
-
-          <div className="flex flex-col md:flex-row items-center justify-center gap-10 mb-10">
-            {/* LeetCode Stats Card */}
-            <img
-              src="https://leetcard.jacoblin.cool/ishasah850?theme=dark&font=Source%20Code%20Pro&ext=heatmap"
-              alt="LeetCode Stats"
-              className="w-full md:w-[280px] rounded-xl shadow-lg border border-neutral-700"
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <ProjectCard
+              title="TypeStrike AI"
+              description="AI-driven full-stack typing application with multiplayer features and difficulty levels. Users can test typing speed against AI opponents."
+              features={[
+                'Play with AI at various difficulty levels',
+                'Real-time multiplayer using WebSockets',
+                'Performance analytics and tracking',
+              ]}
+              tags={['React', 'WebSocket', 'MongoDB', 'DeepSeek AI', 'TailwindCSS']}
+              sourceUrl="https://github.com/IshaSah24/TypeStrike-AI"
+              gradient="bg-gradient-to-br from-blue-500/10 to-purple-500/10"
             />
+            <ProjectCard
+              title="Full Stack URL Shortener"
+              description="Complete URL shortening service with user authentication, link management, and detailed analytics dashboard."
+              features={[
+                'Shorten and manage custom URLs',
+                'Track click analytics and metrics',
+                'User authentication and profiles',
+              ]}
+              tags={['React', 'Express', 'MongoDB', 'TailwindCSS']}
+              sourceUrl="https://github.com/IshaSah24/FullStack-UrlShortner"
+              gradient="bg-gradient-to-br from-purple-500/10 to-pink-500/10"
+            />
+          </div>
+        </motion.section>
 
-            {/* Quick Stats */}
-            <div className=" space-y-3 text-center md:text-left">
-              <p>
-                - Solved{" "}
-                <span className="font-semibold text-black">
-                  200+ LeetCode problems
-                </span>
-              </p>
-              <p>- Maintain a daily problem-solving streak</p>
-              <p>
-                - Focused on{" "}
-                <span className="text-black font-medium">
-                  time and space optimization
-                </span>
-              </p>
-              <p>- participant in LeetCode Weekly Contests</p>
-              <p>
-                - Clean, well-documented solutions available on{" "}
-                <a
-                  href="https://github.com/isha-sah/leetcode-solutions"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 underline hover:underline hover:text-blue-500"
-                >
-                  GitHub
-                </a>
-              </p>
+        <motion.section
+          className="mb-24"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+        >
+          <div className="bg-surface-secondary border border-divider rounded-2xl p-8">
+            <h2 className="text-2xl font-bold text-text-primary mb-4 text-center">
+              Data Structures & Algorithms
+            </h2>
+            <p className="text-text-secondary text-center max-w-2xl mx-auto mb-8 leading-relaxed">
+              Consistent practice on{' '}
+              <a
+                href="https://leetcode.com/u/ishasah850/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent hover:underline font-medium"
+              >
+                LeetCode
+              </a>{' '}
+              to strengthen problem-solving skills and algorithmic thinking
+            </p>
+
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-8 mb-8">
+              <img
+                src="https://leetcard.jacoblin.cool/ishasah850?theme=dark&font=Source%20Code%20Pro&ext=heatmap"
+                alt="LeetCode Stats"
+                className="w-full lg:w-[400px] rounded-xl border border-divider"
+              />
+
+              <div className="space-y-2 text-sm text-text-secondary">
+                <p className="flex items-start gap-2">
+                  <span className="text-accent">→</span>
+                  Solved 200+ problems across multiple categories
+                </p>
+                <p className="flex items-start gap-2">
+                  <span className="text-accent">→</span>
+                  Daily problem-solving streak maintained
+                </p>
+                <p className="flex items-start gap-2">
+                  <span className="text-accent">→</span>
+                  Focus on time and space optimization
+                </p>
+                <p className="flex items-start gap-2">
+                  <span className="text-accent">→</span>
+                  Active participant in weekly contests
+                </p>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <a
+                href="https://leetcode.com/u/ishasah850/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-text-primary text-bg-primary px-6 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity"
+              >
+                View LeetCode Profile
+              </a>
             </div>
           </div>
+        </motion.section>
 
-          <div className="text-center">
+        <motion.footer
+          className="border-t border-divider pt-8 pb-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.9 }}
+        >
+          <div className="flex items-center justify-center gap-6 mb-4">
             <a
-              href="https://leetcode.com/u/ishasah850/"
+              href="https://github.com/IshaSah24/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-black hover:bg-gray-800 px-4 py-4 rounded-full font-semibold text-white transition"
+              className="text-text-tertiary hover:text-accent transition-colors"
             >
-              view
+              <Github size={20} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/isha-sah-607277300/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-tertiary hover:text-accent transition-colors"
+            >
+              <Linkedin size={20} />
+            </a>
+            <a
+              href="https://x.com/IshaSah_24"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-tertiary hover:text-accent transition-colors"
+            >
+              <Twitter size={20} />
+            </a>
+            <a
+              href="mailto:sah904582@email.com"
+              className="text-text-tertiary hover:text-accent transition-colors"
+            >
+              <Mail size={20} />
             </a>
           </div>
-        </section>
+          <p className="text-center text-xs text-text-tertiary font-mono">
+            Built with React + TypeScript + TailwindCSS
+          </p>
+        </motion.footer>
       </div>
-
-      <nav className="fixed bottom-0 left-0 right-0  border-neutral-50 py-4">
-        <div className="max-w-sm mx-auto px-8 flex justify-evenly gap-6 border-2 border-[oklch(87.2% 0.01 258.338)] p-4 rounded-full bg-gray-50  transparent">
-          <a
-            href="https://github.com/IshaSah24/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-neutral-800 hover:text-black border-r "
-          >
-            <Github size={16} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/isha-sah-607277300/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-neutral-800 hover:text-black"
-          >
-            <Linkedin size={16} />
-          </a>
-          <a
-            href="https://x.com/IshaSah_24"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-neutral-800 hover:text-black"
-          >
-            <Twitter size={16} />
-          </a>
-          <a
-            href="mailto:sah904582@email.com"
-            className="text-neutral-800 hover:text-black border-l"
-          >
-            <Mail size={16} />
-          </a>
-        </div>
-      </nav>
     </div>
   );
 }
