@@ -45,9 +45,9 @@ import {
   SiApache,
 } from "react-icons/si";
 import { FaAws, FaStripe } from "react-icons/fa";
-import { TbBrandReactNative } from "react-icons/tb";
+// import { TbBrandReactNative } from "react-icons/tb";
 import profile from "./assets/me.png";
-import ChatBot from "./components/Chatbot";
+import ChatBot from "./components/ChatBot";
 import Navbar from "./components/Navbar";
 import typestrikeImage from "./assets/project-logo/typestrike.png";
 import techeventsImage from "./assets/project-logo/techevents.png";
