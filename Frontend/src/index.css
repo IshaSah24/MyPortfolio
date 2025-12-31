@@ -1,126 +1,193 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
-* {
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-  margin: 0;
-  padding: 0;
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 47.4% 11.2%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 47.4% 11.2%;
+
+  --primary: 221.2 83.2% 53.3%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+
+  --accent: 221.2 83.2% 53.3%;
+  --accent-foreground: 210 40% 98%;
+
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 221.2 83.2% 53.3%;
+
+  --shadow: 0 0% 0% / 0.1;
 }
 
 
-@font-face {
-  font-family: 'font1';
-  src: url('./fonts/amsterdam/1.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
 
-@font-face {
-  font-family: "font6";
-  src: url("./fonts/amsterdam/6.ttf");
-}
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
 
-@font-face {
-  font-family: "font7";
-  src: url("./fonts/amsterdam/7.ttf");
-}
+  --primary: 217.2 91.2% 59.8%;
+  --primary-foreground: 222.2 47.4% 11.2%;
 
-.logo {
-  font-family: 'font1', 'Montserrat';
-  
-}
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
 
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
 
-.text, .footer-text {
-  font-family: "font6", 'Montserrat';
-  /* font-size: 3em; */
-  /* optional */
-  color: #3b82f6;
-  /* optional */
+  --accent: 217.2 91.2% 59.8%;
+  --accent-foreground: 210 40% 98%;
+
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 224.3 76.3% 48%;
+
+  --shadow: 0 0% 0% / 0.3;
 }
 
 
+.eyecare {
+  --background: 48 33% 95%;
+  --foreground: 210 40% 11%;
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
+  --card: 48 33% 95%;
+  --card-foreground: 210 40% 11%;
+
+  --primary: 48 89% 59%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 48 33% 85%;
+  --secondary-foreground: 210 40% 11%;
+
+  --muted: 48 33% 85%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+
+  --accent: 48 89% 59%;
+  --accent-foreground: 210 40% 98%;
+
+  --border: 48 33% 85%;
+  --input: 48 33% 85%;
+  --ring: 48 89% 59%;
+
+  --shadow: 0 0% 0% / 0.15;
+}
+
+
+html,
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    sans-serif;
+}
+
+html,
+body,
+button,
+a,
+input,
+textarea,
+select {
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--accent));
+}
+
+::selection {
+  background-color: hsl(var(--accent));
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid hsl(var(--accent));
+  outline-offset: 2px;
+}
+
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.transition-smooth {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.dark .glass {
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.eyecare .glass {
+  background: rgba(253, 252, 245, 0.85);
+}
+
+
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px hsl(var(--shadow));
+}
+
+
+section {
+  scroll-margin-top: 2rem;
+}
+
+
+@media (max-width: 768px) {
+  .fixed-sidebar {
+    display: none;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+  .bottom-nav {
+    bottom: 1rem;
   }
 }
 
-
-
-
-
-@layer base {
-  * {
-    @apply border-border;
+@media print {
+  .no-print {
+    display: none;
   }
-
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
-input {
-  padding: 0.5rem;
-  outline: none;
-  border-radius: 60px;
-  padding-left: 1rem; 
-  font-size:1.4rem;
-  color: black;
 }
