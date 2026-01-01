@@ -380,7 +380,7 @@ function App() {
                 <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
                   Full-Stack Developer
                   <span className="block text-3xl md:text-4xl text-gray-500 dark:text-gray-400 mt-2">
-                    Thinking, Building & Scaling 
+                    Thinking, Building & Scaling
                   </span>
                 </h1>
                 <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mb-4">
@@ -426,17 +426,18 @@ function App() {
 
               <div className="flex flex-wrap items-center gap-4">
                 <a
-                  href="/src/assets/cv/IshaSah-CV.pdf"
+                  href="https://drive.google.com/file/d/1a_LkV8XoM9zNEy9DHK9qY3x2VVPOov3c/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 bg-gray-800 dark:bg-white text-white dark:text-gray-900 font-medium hover:bg-gray-700 dark:hover:bg-gray-300 transition-colors"
+                  className="inline-flex hover:shadow-md hover:-translate-y-0.5 items-center gap-2 px-5 py-3 rounded-lg bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-all shadow-sm"
                 >
                   <FileText size={16} />
-                  CV/Resume
+                  View Resume
                 </a>
+
                 <a
                   href="mailto:sah904582@gmail.com"
-                  className="inline-flex items-center gap-2 px-5 py-3 border border-gray-300 dark:border-gray-700 rounded-lg font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                  className=" shadow-sm hover:shadow-md hover:-translate-y-0.5 inline-flex items-center gap-2 px-5 py-3 border border-gray-300 dark:border-gray-700 rounded-lg font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                 >
                   <Mail size={16} />
                   Contact Me
