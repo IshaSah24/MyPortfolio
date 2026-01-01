@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import { SiLeetcode } from "react-icons/si";
+import { FaTwitter } from "react-icons/fa";
+import { Server } from "lucide-react";
 import {
   Github,
   Linkedin,
@@ -54,7 +57,7 @@ import techeventsImage from "./assets/project-logo/techevents.png";
 import gmailAgentImage from "./assets/project-logo/gmail-agent.png";
 import nullclassLogo from "./assets/logo/nullclass.png";
 import hackathonLogo from "./assets/logo/hackathon.png";
-import academicLogo from "./assets/logo/academic.png";
+import networkLogo from "./assets/logo/network.webp";
 // import LeetCodeCard from "./components/GithubCard";
 import GitHubCard from "./components/GithubCard";
 
@@ -100,7 +103,7 @@ function App() {
     const logoMap = {
       nullclass: nullclassLogo,
       hackathon: hackathonLogo,
-      academic: academicLogo,
+      academic: networkLogo,
     };
     return logoMap[iconName] || null;
   };
@@ -166,7 +169,7 @@ function App() {
     },
     {
       icon: "hackathon",
-      company: "DATM & ISOAH North Bengal Hacketron",
+      company: "DATM & ISOAH North Bengal Hackathon",
       position: "AI Agent for Gmail (Hackathon Project)",
       period: "Nov 2025",
       location: "Alipurduar, India",
@@ -368,13 +371,13 @@ function App() {
                 {specialties.map((specialty, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-2 px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg"
+                    className="flex items-center gap-2 px-3 py-2 bg-white rounded-[6px] dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
                   >
                     <div className="text-blue-600 dark:text-blue-400">
                       {specialty.icon}
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-gray-900 dark:text-white">
+                      <p className="text-sm font-sm text-gray-900 dark:text-white">
                         {specialty.title}
                       </p>
                     </div>
@@ -387,7 +390,7 @@ function App() {
                   href="/resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-gray-800 dark:bg-white text-white dark:text-gray-900 font-medium hover:bg-gray-700 dark:hover:bg-gray-300 transition-colors"
                 >
                   <FileText size={16} />
                   View Resume
@@ -447,7 +450,7 @@ function App() {
             <div className="flex items-center gap-3">
               <Briefcase
                 className="text-blue-600 dark:text-blue-400"
-                size={20}
+                size={16}
               />
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 Experience
@@ -458,23 +461,23 @@ function App() {
             </span>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-0">
             {experiences.map((exp, index) => {
               const logoImage = getLogoImage(exp.icon);
               return (
                 <div key={index} className="relative group">
-                  <div className="absolute left-6 top-12 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-800 group-last:hidden h-80"></div>
+                  <div className="absolute left-7 top-14 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-800 group-last:hidden"></div>
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center">
+                      <div className="w-14 h-14 rounded-[6px] bg-gray-800 dark:bg-gray-800 dark:border-gray-700 flex items-center justify-center">
                         {logoImage ? (
                           <img
                             src={logoImage}
                             alt={exp.company}
-                            className="w-8 h-8 object-contain"
+                            className="w-20 h-14 object-contain rounded-[6px]"
                           />
                         ) : (
-                          <Briefcase size={20} className="text-gray-400" />
+                          <Briefcase size={14} className="text-gray-400" />
                         )}
                       </div>
                     </div>
@@ -617,7 +620,7 @@ function App() {
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-8 h-8 object-contain"
+                        className="w-full h-full object-contain"
                       />
                     </div>
                     <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400 rounded-full">
@@ -667,14 +670,12 @@ function App() {
           </div>
         </section>
         <section id="coding-profiles" className="space-y-4">
-  <h2 className="text-2xl font-semibold text-foreground">
-    Coding Profiles
-  </h2>
+          <h2 className="text-2xl font-bold text-foreground">
+            GitHub Activity
+          </h2>
 
-  <GitHubCard />
-
-  {/* Later you can add GitHub / CodeChef */}
-</section>
+          <GitHubCard />
+        </section>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
           <section id="education">
@@ -1055,6 +1056,27 @@ function App() {
         <div className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border border-gray-200 dark:border-gray-800 rounded-full px-4 py-3 shadow-lg">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
+              <a
+                href="https://leetcode.com/yourusername"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full text-gray-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors"
+                aria-label="LeetCode"
+              >
+                <SiLeetcode size={16} />
+              </a>
+
+              <a
+                href="https://twitter.com/yourusername"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+              >
+                <FaTwitter size={16} />
+              </a>
+            </div>
+            <span className="text-gray-300 dark:text-gray-600 px-2">|</span>
+            <div className="flex items-center gap-2">
               <button
                 onClick={() => toggleTheme("light")}
                 className={`p-2 rounded-full transition-colors ${
@@ -1066,6 +1088,7 @@ function App() {
               >
                 <Sun size={16} />
               </button>
+
               <button
                 onClick={() => toggleTheme("dark")}
                 className={`p-2 rounded-full transition-colors ${
@@ -1077,6 +1100,7 @@ function App() {
               >
                 <Moon size={16} />
               </button>
+
               <button
                 onClick={() => toggleTheme("eyecare")}
                 className={`p-2 rounded-full transition-colors ${
