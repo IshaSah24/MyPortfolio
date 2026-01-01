@@ -314,9 +314,32 @@ function App() {
     },
   ];
 
+  const coreStack = [
+    {
+      name: "Next.js",
+      icon: <SiNextdotjs size={18} />,
+      color: "text-gray-900 dark:text-white",
+    },
+    {
+      name: "PostgreSQL",
+      icon: <SiPostgresql size={18} />,
+      color: "text-indigo-500",
+    },
+    {
+      name: "TypeScript",
+      icon: <SiTypescript size={18} />,
+      color: "text-blue-600",
+    },
+    {
+      name: "Tailwind CSS",
+      icon: <SiTailwindcss size={18} />,
+      color: "text-cyan-400",
+    },
+  ];
+
   return (
     <div className="app-container">
-      <div className="fixed top-24 right-8 z-40 hidden lg:block">
+      {/* <div className="fixed top-24 right-8 z-40 hidden lg:block">
         <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200 dark:border-gray-800 rounded-xl p-3 shadow-lg">
           <div className="flex flex-col gap-2">
             {[
@@ -342,32 +365,32 @@ function App() {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 pb-24">
         <Navbar theme={theme} toggleTheme={toggleTheme} />
 
         <header className="mb-20 mt-16">
-          <div className="flex flex-col lg:flex-row items-start gap-10">
+          <div className="flex lg:flex-row items-start gap-6 lg:gap-12">
             <div className="lg:w-2/3">
-              <div className="mb-8">
+              <div className="mb-6">
                 <span className="inline-block px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-medium mb-4">
-                  Available for Remote Opportunities
+                  Available for Opportunities
                 </span>
                 <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
                   Full-Stack Developer
-                  <span className="block text-3xl md:text-4xl text-gray-600 dark:text-gray-400 mt-2">
-                    Building Scalable Products
+                  <span className="block text-3xl md:text-4xl text-gray-500 dark:text-gray-400 mt-2">
+                    Thinking, Building & Scaling 
                   </span>
                 </h1>
-                <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mb-8">
+                <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mb-4">
                   I build scalable web applications with modern technologies.
                   Passionate about creating impactful digital solutions for
                   startups, fintech, and product-based companies.
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-3 mb-8">
+              {/* <div className="flex flex-wrap gap-3 mb-8">
                 {specialties.map((specialty, index) => (
                   <div
                     key={index}
@@ -383,17 +406,33 @@ function App() {
                     </div>
                   </div>
                 ))}
+              </div> */}
+
+              <div className="mb-12">
+                <div className="flex flex-wrap gap-3">
+                  {coreStack.map((tech, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm font-medium cursor-pointer transition-transform"
+                    >
+                      <span className={tech.color}>{tech.icon}</span>
+                      <span className="text-gray-900 dark:text-gray-100">
+                        {tech.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div className="flex flex-wrap items-center gap-4">
                 <a
-                  href="/resume.pdf"
+                  href="/src/assets/cv/IshaSah-CV.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-3 bg-gray-800 dark:bg-white text-white dark:text-gray-900 font-medium hover:bg-gray-700 dark:hover:bg-gray-300 transition-colors"
                 >
                   <FileText size={16} />
-                  View Resume
+                  CV/Resume
                 </a>
                 <a
                   href="mailto:sah904582@gmail.com"
@@ -677,7 +716,7 @@ function App() {
           <GitHubCard />
         </section>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20 mt-24">
           <section id="education">
             <div className="mb-6">
               <div className="flex items-center gap-3 mb-4">
