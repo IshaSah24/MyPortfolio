@@ -52,7 +52,7 @@ import { FaAws, FaStripe } from "react-icons/fa";
 import profile from "./assets/me.png";
 import ChatBot from "./components/ChatBot";
 import Navbar from "./components/Navbar";
-import typestrikeImage from "./assets/project-logo/typestrike.png";
+import typestrikeImage from "./assets/project-logo/typestrike1.png";
 import techeventsImage from "./assets/project-logo/techevents.png";
 import gmailAgentImage from "./assets/project-logo/gmail-agent.png";
 import nullclassLogo from "./assets/logo/nullclass.png";
@@ -116,7 +116,7 @@ function App() {
       image: typestrikeImage,
       tags: ["React", "Node.js", "MongoDB", "Tailwind", "Razorpay"],
       github: "https://github.com/ishasah/TypeStrike.Ai",
-      demo: "#",
+      demo: "https://typestrike.vercel.app/",
       details:
         "Built scalable microservices architecture, implemented subscription-based monetization with Razorpay, and developed real-time multiplayer functionality using WebSockets.",
       category: "SaaS Product",
@@ -128,11 +128,10 @@ function App() {
         "Full-stack event management platform with role-based authentication and payment processing.",
       image: techeventsImage,
       tags: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Stripe"],
-      github: "https://github.com/ishasah/TechEvents",
-      demo: "#",
+      github: "https://github.com/IshaSah24/TechEvents",
+      demo: "http://techevents.vercel.app/",
       details:
         "Designed scalable backend architecture with PostgreSQL, implemented secure payment processing, and built real-time notification system.",
-      category: "B2B Platform",
       metrics: ["500+ Events", "99.9% Reliability", "Auto-scaling"],
     },
     {
@@ -141,8 +140,8 @@ function App() {
         "AI browser extension to analyze email content and generate context-aware replies using advanced NLP.",
       image: gmailAgentImage,
       tags: ["JavaScript", "Chrome API", "Deepseek V3", "NLP"],
-      github: "https://github.com/ishasah/gmail-ai-agent",
-      demo: "#",
+      github: "https://github.com/IshaSah24/mail-assistant",
+      demo: "https://drive.google.com/file/d/1Mh4ZVG7XjnTyMxcnbWUwITDGOsIVCKkH/view?usp=drive_link",
       details:
         "Developed Chrome extension with dynamic prompt engineering, tone selection, and context-aware response generation.",
       category: "AI Product",
@@ -444,7 +443,7 @@ function App() {
                 </a>
                 <div className="flex items-center gap-3">
                   <a
-                    href="https://github.com/ishasah"
+                    href="https://github.com/IshaSah24"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
@@ -452,7 +451,7 @@ function App() {
                     <Github size={18} />
                   </a>
                   <a
-                    href="https://linkedin.com/in/isha-sah"
+                    href="https://www.linkedin.com/in/ishaxsah/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors"
@@ -654,57 +653,75 @@ function App() {
                 key={index}
                 className="group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:border-blue-300 dark:hover:border-blue-700 transition-all duration-300"
               >
-                <div className="p-6">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="w-12 h-12 bg-gray-100 dark:bg-gray-900 rounded-lg flex items-center justify-center">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                    <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400 rounded-full">
-                      {project.category}
-                    </span>
-                  </div>
+<div
+  key={index}
+  className="group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300"
+>
+  {/* Project Image (TOP) */}
+  <div className="relative h-48 w-full overflow-hidden">
+    <img
+      src={project.image}
+      alt={project.title}
+      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+    />
+  </div>
 
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-                    {project.description}
-                  </p>
+  {/* Card Content */}
+  <div className="p-6">
+    {/* Title + Icons */}
+    <div className="flex items-center justify-between mb-3">
+      <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+        {project.title}
+      </h3>
 
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tags.map((tag, i) => (
-                      <span
-                        key={i}
-                        className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400 rounded"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+      <div className="flex items-center gap-3 text-gray-500">
+        {project.demo && (
+          <a href={project.demo} target="_blank">
+            <ExternalLink size={18} />
+          </a>
+        )}
+        {project.github && (
+          <a href={project.github} target="_blank">
+            <Github size={18} />
+          </a>
+        )}
+      </div>
+    </div>
 
-                  <div className="flex gap-3">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 inline-flex items-center justify-center gap-2 px-3 py-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
-                    >
-                      <Github size={14} />
-                      Code
-                    </a>
-                    <a
-                      href={project.demo}
-                      className="flex-1 inline-flex items-center justify-center gap-2 px-3 py-2 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
-                    >
-                      <ExternalLink size={14} />
-                      Demo
-                    </a>
-                  </div>
-                </div>
+    {/* Description */}
+    <p className="text-gray-600 dark:text-gray-400 text-sm mb-5">
+      {project.description}
+    </p>
+
+    {/* Technologies */}
+    <p className="text-xs text-gray-500 mb-2">Technologies</p>
+    <div className="flex items-center gap-3 mb-6">
+      {project.tags.map((tag, i) => (
+        <span
+          key={i}
+          className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400 rounded-md"
+        >
+          {tag}
+        </span>
+      ))}
+    </div>
+
+    {/* Footer */}
+    <div className="flex items-center justify-between">
+      <span className="flex items-center gap-2 text-xs px-3 py-1 rounded-full bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
+        ● All Systems Operational
+      </span>
+
+      <a
+        href={project.demo}
+        className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:underline flex items-center gap-1"
+      >
+        View Details →
+      </a>
+    </div>
+  </div>
+</div>
+
               </div>
             ))}
           </div>
