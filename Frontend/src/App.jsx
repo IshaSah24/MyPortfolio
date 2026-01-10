@@ -45,7 +45,6 @@ import {
   SiCplusplus,
   SiDjango,
   SiRedhat,
-  SiApache,
 } from "react-icons/si";
 import { FaAws, FaStripe } from "react-icons/fa";
 // import { TbBrandReactNative } from "react-icons/tb";
