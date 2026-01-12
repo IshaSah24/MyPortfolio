@@ -103,7 +103,7 @@ select {
     color 0.2s ease;
 }
 
-
+/* 
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -119,7 +119,8 @@ select {
 
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--accent));
-}
+} */
+ 
 
 ::selection {
   background-color: hsl(var(--accent));
