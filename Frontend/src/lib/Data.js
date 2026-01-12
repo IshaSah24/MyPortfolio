@@ -17,6 +17,7 @@
 import typing from "../assets/project-logo/typestrike.png";
 import techevents from "../assets/project-logo/techevents.png";
 import mailagent from "../assets/project-logo/gmail.demo.png";
+import { Award, Rocket, Target } from "lucide-react";
 // import cli from "/cli.png";
 // import url from "/url.png";
 // import port from "/port.png";
@@ -25,19 +26,19 @@ import mailagent from "../assets/project-logo/gmail.demo.png";
 
 // ---------------- achievements ----------------
 
-const achievements = [
+export const achievements = [
   {
-    icon: <Award size={14} />,
+    icon: Award,
     text: "Built 3+ production applications during internship",
     color: "text-yellow-500",
   },
   {
-    icon: <Rocket size={14} />,
+    icon: Rocket,
     text: "Fast learner with proven track record",
     color: "text-purple-500",
   },
   {
-    icon: <Target size={14} />,
+    icon: Target,
     text: "Strong problem-solving skills",
     color: "text-green-500",
   },

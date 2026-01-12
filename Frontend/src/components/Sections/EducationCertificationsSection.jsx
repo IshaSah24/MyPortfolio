@@ -1,26 +1,9 @@
 import React from "react";
 import { School, Trophy, Award, Rocket, Target } from "lucide-react";
 import { certifications } from "../../lib/Data";
+import { achievements } from "../../lib/Data";
 
 const EducationCertificationsSection = () => {
-  const achievements = [
-    {
-      icon: <Award size={14} />,
-      text: "Built 3+ production applications during internship",
-      color: "text-yellow-500",
-    },
-    {
-      icon: <Rocket size={14} />,
-      text: "Fast learner with proven track record",
-      color: "text-purple-500",
-    },
-    {
-      icon: <Target size={14} />,
-      text: "Strong problem-solving skills",
-      color: "text-green-500",
-    },
-  ];
-
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-16 lg:mb-20">
       <div className="flex  flex-col">
@@ -77,9 +60,12 @@ const EducationCertificationsSection = () => {
                     className="flex items-start gap-3 p-3 hover:bg-gray-50 dark:hover:bg-gray-800/50 rounded-lg transition-colors"
                   >
                     <div
-                      className={`w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center flex-shrink-0 ${achievement.color}`}
+                      className={`w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center flex-shrink-0`}
                     >
-                      {achievement.icon}
+                      <achievement.icon
+                        size={14}
+                        className={achievement.color}
+                      />
                     </div>
                     <div className="flex-1">
                       <p className="text-sm text-gray-700 dark:text-gray-300">
